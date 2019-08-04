@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analytics Dashboard</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+     <div class="container">
+         <br>
+         <h1 class="text-center"><u>Insert Your Data Below</u></h1>
+         <br>
+         <div class="col-lg-4 m-auto">
+         <form id="myform" action="/insert" method="post">
+             <div class="form-group">
+                 <label>advertiserName</label>
+                 <input type="text" name="advertiserName" class="form-control">
+             </div>
+             <div class="form-group">
+                 <label>publisherName</label>
+                 <input type="text" name="publisherName" class="form-control">
+             </div>
+             <div class="form-group">
+                 <label>impression</label>
+                 <input type="text" name="impression" class="form-control">
+             </div>
+             <div class="form-group">
+                 <label>click</label>
+                 <input type="text" name="click" class="form-control">
+             </div>
+             <div class="form-group">
+                 <label>install</label>
+                 <input type="text" name="install" class="form-control">
+             </div>
+             <div class="form-group">
+                 <label>purchase</label>
+                 <input type="text" name="purchase" class="form-control">
+             </div>
+             <div class="form-group">
+                 <label>os</label>
+                 <input type="text" name="os" class="form-control">
+             </div>
+             <div class="form-group">
+                 <label>city</label>
+                 <input type="text" name="city" class="form-control">
+             </div>
+             <div class="form-group">
+                 <label>deviceBrand</label>
+                 <input type="text" name="deviceBrand" class="form-control">
+             </div>
+             <input type="submit" name="submit" id="submit" value="submit" class="btn btn-success"><br><br>
+         </form>
+         </div>
+     </div>
+  <script type="text/javascript">
+         $(documents).ready(function){
+             var form = $('#myform');
+             $('#submit').click(function(){
+                 $.ajax({
+
+                    url: form.attr("action"),
+                    type: 'post',
+                    data: $("#myform input").serialize(),
+                    success: function(data){
+                         console.log(data);
+                     alert("Data inserted sucessfully");
+                    }
+                 });
+             });
+   </script>
+</body>
+</html>
